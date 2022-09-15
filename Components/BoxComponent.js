@@ -1,29 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     StyleSheet,
     Text,
-    View,
-    TouchableOpacity,
-    Button,
-    FlatList,
-    SafeAreaView
+    TouchableOpacity
 } from 'react-native';
 
-export const BoxComponent = ({buttons, doSomething, title}) =>{
+export const BoxComponent = ({ style, index, title }) => {
     return (
-                <TouchableOpacity style={styles.buttonRight}>
-                    <Text style={styles.text}>{title}</Text>
-                </TouchableOpacity>
+        <TouchableOpacity style={[styles.buttonRight, style]}>
+            <Text style={styles.text}>{title}{index}</Text>
+        </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
     buttonRight: {
         marginTop: '25%',
         marginLeft: '25%',
-        height: 50,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgb(108,116,118)',
+        height: 50,
         width: 100,
         height: 100,
     },
@@ -31,5 +26,3 @@ const styles = StyleSheet.create({
         color: 'white'
     }
 })
-
-//export default BoxComponent;

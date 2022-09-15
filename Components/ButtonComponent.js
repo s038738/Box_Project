@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import {
     StyleSheet,
     Text,
-    View,
-    TouchableOpacity,
-    Button,
-    FlatList,
-    SafeAreaView
+    TouchableOpacity
 } from 'react-native';
 
-export const ButtonComponent = ({buttons, doSomething, title}) =>{
-    return(
-        <TouchableOpacity style={styles.buttonLeft}>
-            <Text>{title}</Text>
+export const ButtonComponent = ({ buttonPress, index, title }) => {
+    return (
+        <TouchableOpacity style={styles.buttonLeft}
+            onPress={() => {
+                buttonPress(index);
+                return buttonPress;
+            }}>
+            <Text>{title}{index}</Text>
         </TouchableOpacity>
     )
 }
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
         marginLeft: '25%',
         alignItems: 'center',
         justifyContent: 'center',
+        borderColor: 'rgb(102,168,197)',
         borderWidth: 3,
-        borderColor: 'rgb(108,116,118)',
         borderRadius: 20,
         width: 110,
         height: 40,
